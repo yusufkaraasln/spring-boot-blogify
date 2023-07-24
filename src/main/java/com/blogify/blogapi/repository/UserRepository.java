@@ -1,6 +1,7 @@
 package com.blogify.blogapi.repository;
 
 import com.blogify.blogapi.entity.User;
+import com.blogify.blogapi.entity.UserDetails;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -13,8 +14,12 @@ public interface UserRepository extends CrudRepository<User, Integer>, JpaSpecif
 
     Optional<User> findFirstByEmail(String email);
 
+    Optional<User> findById(Integer id);
+
 
     User getUserByUsername(String username);
+
+
 }
 
 

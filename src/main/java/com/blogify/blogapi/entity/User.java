@@ -22,7 +22,7 @@ public class User {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String username;
@@ -33,15 +33,20 @@ public class User {
 
     private String email;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_details_id")
+    private UserDetails userDetails;
+
+
     @JsonIgnore
     private String password;
 
     private UserType userType;
 
-    @OneToMany(mappedBy = "to")
+    @OneToMany(mappedBy = "to", cascade = CascadeType.ALL)
     private List<Followers> followers;
 
-    @OneToMany(mappedBy = "from")
+    @OneToMany(mappedBy = "from", cascade = CascadeType.ALL)
     private List<Followers> following;
 
 

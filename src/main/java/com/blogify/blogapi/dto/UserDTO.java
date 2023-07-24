@@ -2,6 +2,7 @@ package com.blogify.blogapi.dto;
 
 
 import com.blogify.blogapi.entity.User;
+import com.blogify.blogapi.entity.UserDetails;
 import com.blogify.blogapi.enums.UserType;
 import lombok.Data;
 
@@ -17,6 +18,9 @@ public class UserDTO {
     private String surname;
     private String email;
     private UserType userType;
+
+    private UserDetails userDetails;
+
     private List<UserDTO> followers;
     private List<UserDTO> following;
 

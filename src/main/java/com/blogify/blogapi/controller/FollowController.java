@@ -16,10 +16,8 @@ import java.util.Optional;
 @AllArgsConstructor
 public class FollowController {
 
-    private final FollowersService followersService;
+    private FollowersService followersService;
     private UserRepository userService;
-
-
 
 
     @PostMapping("/follow")
@@ -29,7 +27,6 @@ public class FollowController {
 
         User fromUser1 = fromUser.orElseThrow(() -> new RuntimeException("Kullanıcı bulunamadı"));
         User toUser1 = toUser.orElseThrow(() -> new RuntimeException("Kullanıcı bulunamadı"));
-
 
 
         followersService.follow(fromUser1, toUser1);
