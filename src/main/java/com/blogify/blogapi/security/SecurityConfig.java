@@ -37,6 +37,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers("/api/v1/user/**").hasRole("USER")
                         .requestMatchers("/api/v1/follow").hasRole("USER")
+                        .requestMatchers("/api/v1/blog/**").hasRole("USER")
                         .requestMatchers("/api/v1/unfollow").hasRole("USER")
 
                 )

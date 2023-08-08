@@ -41,7 +41,7 @@ public class UserController {
 
 
     @GetMapping("/{username}")
-    public ResponseEntity<UserDTO> getUserByUsername(@PathVariable String username) {
+    public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
         User user = userService.getUserByUsername(username);
 
         if (user == null) {
@@ -49,9 +49,9 @@ public class UserController {
         }
 
         // User nesnesini UserDTO'ya dönüştür
-        UserDTO userDTO = convertToUserDTO(user);
+       /* UserDTO userDTO = convertToUserDTO(user);*/
 
-        return ResponseEntity.ok(userDTO);
+        return ResponseEntity.ok(user);
     }
 
 
@@ -86,6 +86,13 @@ public class UserController {
         userDTO.setEmail(user.getEmail());
         userDTO.setUserType(user.getUserType());
         userDTO.setUserDetails(user.getUserDetails());
+
+        List<UserDTO> blogsDTO = user.getBlogs()
+                .stream()
+                .map(blog -> convertToUserDTOMinimal(blog.getAuthor()))
+                .collect(Collectors.toList());
+
+
 
 
         List<UserDTO> followersDTO = user.getFollowers()

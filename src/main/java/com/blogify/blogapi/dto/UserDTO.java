@@ -1,6 +1,7 @@
 package com.blogify.blogapi.dto;
 
 
+import com.blogify.blogapi.entity.Blog;
 import com.blogify.blogapi.entity.User;
 import com.blogify.blogapi.entity.UserDetails;
 import com.blogify.blogapi.enums.UserType;
@@ -20,6 +21,8 @@ public class UserDTO {
     private UserType userType;
 
     private UserDetails userDetails;
+
+    private List<Blog> blogs;
 
     private List<UserDTO> followers;
     private List<UserDTO> following;

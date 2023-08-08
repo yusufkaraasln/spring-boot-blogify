@@ -1,5 +1,6 @@
 package com.blogify.blogapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,10 +22,12 @@ public class Followers {
 
     @ManyToOne
     @JoinColumn(name = "from_user_fk")
+    @JsonBackReference
     private User from;
 
     @ManyToOne
     @JoinColumn(name = "to_user_fk")
+    @JsonBackReference
     private User to;
 
 
