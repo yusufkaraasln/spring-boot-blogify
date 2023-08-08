@@ -60,7 +60,7 @@ For detailed information on API endpoints and their usage, please refer to the [
 - Spring Boot
 - Spring Security
 - Spring Data JPA
-- MySQL (or your preferred database)
+- PostgreSQL (or your preferred database)
 - Maven (or Gradle)
 - JSON Web Tokens (JWT) for authentication
 - RESTful API principles
